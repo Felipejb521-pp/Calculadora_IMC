@@ -8,7 +8,7 @@ package com.tuproyecto.imc.model;
  *
  * @author felipe jimenez
  */
-public class CalculadoraIMC {
+public class ModelCalculadora {
      public double calcular(double peso, double altura){
          double imc;
          
