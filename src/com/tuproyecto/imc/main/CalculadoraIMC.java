@@ -4,8 +4,10 @@
  */
 package com.tuproyecto.imc.main;
 
+import com.tuproyecto.imc.controller.ControlCalculadora;
 import com.tuproyecto.imc.model.ModelCalculadora;
 import com.tuproyecto.imc.view.VistaCalculadora;
+import javax.swing.JFrame;
 
 /**
  *
@@ -17,10 +19,18 @@ public class CalculadoraIMC {
     public static void main(String[] args) {
         ModelCalculadora modelo;
         VistaCalculadora vista;
-        
+        ControlCalculadora control;
+        JFrame ventana;
         
         modelo = new ModelCalculadora();
         vista = new VistaCalculadora();
+        control = new ControlCalculadora(modelo,vista);
+        
+        ventana = new JFrame("Calculadora IMC");
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.add(vista);
+        ventana.setVisible(true);
+        
     }
     
 }

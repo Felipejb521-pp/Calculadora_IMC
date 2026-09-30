@@ -5,6 +5,7 @@
 package com.tuproyecto.imc.controller;
 
 import com.tuproyecto.imc.model.ModelCalculadora;
+import com.tuproyecto.imc.model.Usuario;
 import com.tuproyecto.imc.view.VistaCalculadora;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +17,7 @@ import java.awt.event.ActionListener;
 public class ControlCalculadora {
 
     
-    public static void main(String[] args) {
+    
         private final ModelCalculadora modelo;
         private final VistaCalculadora vista;
         
@@ -24,6 +25,14 @@ public class ControlCalculadora {
             this.modelo=modelo;
             this.vista=vista;
             iniciarEvento();
+        }
+        
+        public void sacarResultado(Usuario user ){
+            double imc;
+            
+            imc = modelo.calcular(user.getPeso(),user.getAltura());
+            vista.getjButtonCalcular().setText(String.format("$c",imc));
+                    
         }
         
         public void iniciarEvento(){
@@ -35,6 +44,7 @@ public class ControlCalculadora {
             });
         }
         
-    }
-    
-}
+}      
+        
+      
+

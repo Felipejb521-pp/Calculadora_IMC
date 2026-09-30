@@ -5,6 +5,7 @@
 package com.tuproyecto.imc.view;
 
 import javax.swing.JButton;
+import javax.swing.JTextField;
 
 /**
  *
@@ -19,11 +20,29 @@ public class VistaCalculadora extends javax.swing.JPanel {
         initComponents();
     }
 
+    
+    
     public JButton getjButtonCalcular() {
         return jButtonCalcular;
     }
+
+    public JTextField getjTextFieldALtura() {
+        return jTextFieldALtura;
+    }
+
+    public JTextField getjTextFieldPeso() {
+        return jTextFieldPeso;
+    }
+
+    public JTextField getjTextFieldResultIMC() {
+        return jTextFieldResultIMC;
+    }
+
+    public void setjTextFieldResultIMC(JTextField jTextFieldResultIMC) {
+        this.jTextFieldResultIMC = jTextFieldResultIMC;
+    }
     
-      
+     
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,6 +61,8 @@ public class VistaCalculadora extends javax.swing.JPanel {
         jTextFieldResultIMC = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 204, 204));
+
         jTextFieldPeso.setText("introduzca altura");
 
         jTextFieldALtura.setText("introduzca peso");
@@ -51,7 +72,7 @@ public class VistaCalculadora extends javax.swing.JPanel {
             }
         });
 
-        jButtonCalcular.setBackground(new java.awt.Color(0, 204, 255));
+        jButtonCalcular.setBackground(new java.awt.Color(204, 255, 255));
         jButtonCalcular.setText("Calcular");
         jButtonCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

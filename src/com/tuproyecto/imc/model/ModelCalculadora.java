@@ -23,10 +23,10 @@ public class ModelCalculadora {
          if(imc<18.5){
              cadena = "Bajo Peso";
          }else{
-             if(imc>=18.5 && imc<= 24.9){
+             if( imc<= 24.9){
                  cadena = "Peso NOrmal";
              }else{
-                if(imc>=25 && imc <= 29.9){
+                if( imc <= 29.9){
                     cadena = "Sobrepeso";
                 }else{
                     if(imc>=30){
