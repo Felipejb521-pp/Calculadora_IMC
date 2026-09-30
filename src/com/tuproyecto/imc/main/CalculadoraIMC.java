@@ -20,6 +20,7 @@ public class CalculadoraIMC {
         
         
         modelo = new ModelCalculadora();
+        vista = new VistaCalculadora();
     }
     
 }
