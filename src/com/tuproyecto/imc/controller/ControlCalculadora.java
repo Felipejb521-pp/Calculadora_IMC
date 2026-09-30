@@ -6,6 +6,8 @@ package com.tuproyecto.imc.controller;
 
 import com.tuproyecto.imc.model.ModelCalculadora;
 import com.tuproyecto.imc.view.VistaCalculadora;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -21,7 +23,18 @@ public class ControlCalculadora {
         public ControlCalculadora(ModelCalculadora modelo , VistaCalculadora vista){
             this.modelo=modelo;
             this.vista=vista;
+            iniciarEvento();
         }
+        
+        public void iniciarEvento(){
+            vista.getjButtonCalcular().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                }
+            });
+        }
+        
     }
     
 }
