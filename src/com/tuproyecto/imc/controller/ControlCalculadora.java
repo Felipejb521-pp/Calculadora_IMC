@@ -20,6 +20,8 @@ public class ControlCalculadora {
     
         private final ModelCalculadora modelo;
         private final VistaCalculadora vista;
+        private float altura;
+        private float peso;
         
         public ControlCalculadora(ModelCalculadora modelo , VistaCalculadora vista){
             this.modelo=modelo;
@@ -31,7 +33,7 @@ public class ControlCalculadora {
             double imc;
             
             imc = modelo.calcular(user.getPeso(),user.getAltura());
-            vista.getjButtonCalcular().setText(String.format("$c",imc));
+            vista.getjButtonCalcular().setText(String.format("%.2f",imc));
                     
         }
         
@@ -39,10 +41,14 @@ public class ControlCalculadora {
             vista.getjButtonCalcular().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                    altura = Float.parseFloat(vista.getjTextFieldALtura().getText());
+                    peso = Float.parseFloat(vista.getjTextFieldPeso().getText());
+                    sacarResultado(new Usuario(peso,altura));
                 }
             });
         }
+        
+        
         
 }      
         

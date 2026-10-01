@@ -64,6 +64,11 @@ public class VistaCalculadora extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 204, 204));
 
         jTextFieldPeso.setText("introduzca altura");
+        jTextFieldPeso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPesoActionPerformed(evt);
+            }
+        });
 
         jTextFieldALtura.setText("introduzca peso");
         jTextFieldALtura.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +161,10 @@ public class VistaCalculadora extends javax.swing.JPanel {
     private void jTextFieldALturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldALturaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldALturaActionPerformed
+
+    private void jTextFieldPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPesoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPesoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
