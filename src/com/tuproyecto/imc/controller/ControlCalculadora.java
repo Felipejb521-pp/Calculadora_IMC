@@ -9,6 +9,7 @@ import com.tuproyecto.imc.model.Usuario;
 import com.tuproyecto.imc.view.VistaCalculadora;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,6 +35,7 @@ public class ControlCalculadora {
             
             imc = modelo.calcular(user.getPeso(),user.getAltura());
             vista.getjButtonCalcular().setText(String.format("%.2f",imc));
+            JOptionPane.showMessageDialog(vista, "Resultado Indice Masa Corporal: "+imc);
                     
         }
         
