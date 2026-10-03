@@ -9,8 +9,8 @@ package com.tuproyecto.imc.model;
  * @author felipe jimenez
  */
 public class ModelCalculadora {
-     public double calcular(double peso, double altura){
-         double imc;
+     public double calcular(float  peso, float altura){
+         float imc;
          
          imc = peso / (altura * altura);
          return imc;
@@ -23,10 +23,10 @@ public class ModelCalculadora {
          if(imc<18.5){
              cadena = "Bajo Peso";
          }else{
-             if( imc<= 24.9){
-                 cadena = "Peso NOrmal";
+             if( imc< 25){
+                 cadena = "Peso Normal";
              }else{
-                if( imc <= 29.9){
+                if( imc < 30){
                     cadena = "Sobrepeso";
                 }else{
                     if(imc>=30){

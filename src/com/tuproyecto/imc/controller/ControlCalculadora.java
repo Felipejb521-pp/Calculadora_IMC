@@ -34,17 +34,31 @@ public class ControlCalculadora {
             double imc;
             
             imc = modelo.calcular(user.getPeso(),user.getAltura());
-            vista.getjButtonCalcular().setText(String.format("%.2f",imc));
-            JOptionPane.showMessageDialog(vista, "Resultado Indice Masa Corporal: "+imc);
-                    
+            //metodos definidos en vista
+            vista.setjTextFieldResultIMC(String.format("%.2f", imc));//.2 redondea 2 decimales f num decimal
+            vista.setjtextFieldClasificacion(modelo.clasificar(imc));
+            
         }
         
         public void iniciarEvento(){
             vista.getjButtonCalcular().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    altura = Float.parseFloat(vista.getjTextFieldALtura().getText());
-                    peso = Float.parseFloat(vista.getjTextFieldPeso().getText());
+                    try{
+                        altura = Float.parseFloat(vista.getjTextFieldALtura().getText());
+                    }catch(NumberFormatException ne){
+                        JOptionPane.showMessageDialog(vista,"Introduzca altura "
+                                + "valida(numeros decimales)","Datos incorrectos ",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+                    try{
+                        peso = Float.parseFloat(vista.getjTextFieldPeso().getText());
+                    }catch(NumberFormatException ne){
+                         JOptionPane.showMessageDialog(vista,"Introduzca altura "
+                                + "valida(numeros decimales)","Datos incorrectos ",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+                    
                     sacarResultado(new Usuario(peso,altura));
                 }
             });
