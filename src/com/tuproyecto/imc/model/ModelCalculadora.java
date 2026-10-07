@@ -4,11 +4,19 @@
  */
 package com.tuproyecto.imc.model;
 
+import com.tuproyecto.imc.view.VistaCalculadora;
+import java.awt.Color;
+
 /**
  *
  * @author felipe jimenez
  */
 public class ModelCalculadora {
+    
+    private final VistaCalculadora vista;
+    
+    
+    
      public double calcular(float  peso, float altura){
          float imc;
          
@@ -22,9 +30,11 @@ public class ModelCalculadora {
          cadena="";
          if(imc<18.5){
              cadena = "Bajo Peso";
+             vista.getjTextFieldClasificacion().setForeground(Color.WHITE);
          }else{
              if( imc< 25){
                  cadena = "Peso Normal";
+                 vista.getjTextFieldClasificacion().setForeground(Color.GREEN);
              }else{
                 if( imc < 30){
                     cadena = "Sobrepeso";

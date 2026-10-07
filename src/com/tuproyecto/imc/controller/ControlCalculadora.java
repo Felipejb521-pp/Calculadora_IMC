@@ -7,6 +7,7 @@ package com.tuproyecto.imc.controller;
 import com.tuproyecto.imc.model.ModelCalculadora;
 import com.tuproyecto.imc.model.Usuario;
 import com.tuproyecto.imc.view.VistaCalculadora;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -24,6 +25,7 @@ public class ControlCalculadora {
         private float altura;
         private float peso;
         
+        
         public ControlCalculadora(ModelCalculadora modelo , VistaCalculadora vista){
             this.modelo=modelo;
             this.vista=vista;
@@ -38,7 +40,11 @@ public class ControlCalculadora {
             vista.setjTextFieldResultIMC(String.format("%.2f", imc));//.2 redondea 2 decimales f num decimal
             vista.setjtextFieldClasificacion(modelo.clasificar(imc));
             
+            
         }
+        
+        
+        
         
         public void iniciarEvento(){
             vista.getjButtonCalcular().addActionListener(new ActionListener() {

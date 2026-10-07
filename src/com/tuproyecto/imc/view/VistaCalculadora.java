@@ -38,6 +38,9 @@ public class VistaCalculadora extends javax.swing.JPanel {
         return jTextFieldResultIMC;
     }
 
+    public JTextField getjTextFieldClasificacion(){
+        return jTextFieldClasificacion;
+    }
     //Para sacar por text los resultados de "clasificar" y "calcular"
     public void setjtextFieldClasificacion(String cadena){
         this.jTextFieldClasificacion.setText(cadena);
