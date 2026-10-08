@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author felip
+ * @author Felipe Jimenez
  */
 public class VistaCalculadora extends javax.swing.JPanel {
 

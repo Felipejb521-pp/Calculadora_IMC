@@ -4,8 +4,6 @@
  */
 package com.tuproyecto.imc.model;
 
-import com.tuproyecto.imc.view.VistaCalculadora;
-import java.awt.Color;
 
 /**
  *

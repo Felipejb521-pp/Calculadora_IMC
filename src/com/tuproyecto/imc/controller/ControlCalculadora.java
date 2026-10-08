@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author DAM2
+ * @author Felipe Jimenez
  */
 public class ControlCalculadora {
 
@@ -29,36 +29,36 @@ public class ControlCalculadora {
         public ControlCalculadora(ModelCalculadora modelo , VistaCalculadora vista){
             this.modelo=modelo;
             this.vista=vista;
-            iniciarEvento();
+            
         }
         
         public void sacarResultado(Usuario user ){
             double imc;
+            Color color;
             
             imc = modelo.calcular(user.getPeso(),user.getAltura());
             //metodos definidos en vista
             vista.setjTextFieldResultIMC(String.format("%.2f", imc));//.2 redondea 2 decimales f num decimal
             vista.setjtextFieldClasificacion(modelo.clasificar(imc));
+             
             
-            this.vista.getjTextFieldALtura().getText().replace(',', '.');
-            this.vista.getjTextFieldPeso().getText().replace(',', '.');
-            
-            if(this.modelo.clasificar(imc)== "Bajo Peso"){
+            if(this.modelo.clasificar(imc).equals("Bajo Peso")){
                 this.vista.getjTextFieldClasificacion().setForeground(Color.GREEN);
             }else{
-                if(this.modelo.clasificar(imc)== "Peso Normal"){
+                if(this.modelo.clasificar(imc).equals("Peso Normal")){
                     this.vista.getjTextFieldClasificacion().setForeground(Color.ORANGE);
                 }else{
-                    if(this.modelo.clasificar(imc)== "Sobrepeso"){
+                    if(this.modelo.clasificar(imc).equals("Sobrepeso")){
                         this.vista.getjTextFieldClasificacion().setForeground(Color.ORANGE);
                     }else{
-                        if(this.modelo.clasificar(imc)== "Obesidad"){
+                        if(this.modelo.clasificar(imc).equals("Obesidad")){
                             this.vista.getjTextFieldClasificacion().setForeground(Color.RED);
                         }
                     }
                 }
             
             }
+            
         }
         
         
@@ -69,14 +69,14 @@ public class ControlCalculadora {
                 public void actionPerformed(ActionEvent e) {
                     try{
                         
-                        altura = Float.parseFloat(vista.getjTextFieldALtura().getText());
+                        altura = Float.parseFloat(vista.getjTextFieldALtura().getText().replace(',', '.'));
                     }catch(NumberFormatException ne){
                         JOptionPane.showMessageDialog(vista,"Introduzca altura "
                                 + "valida(numeros decimales)","Datos incorrectos ",
                                 JOptionPane.ERROR_MESSAGE);
                     }
                     try{
-                        peso = Float.parseFloat(vista.getjTextFieldPeso().getText());
+                        peso = Float.parseFloat(vista.getjTextFieldPeso().getText().replace(',', '.'));
                     }catch(NumberFormatException ne){
                          JOptionPane.showMessageDialog(vista,"Introduzca altura "
                                 + "valida(numeros decimales)","Datos incorrectos ",
