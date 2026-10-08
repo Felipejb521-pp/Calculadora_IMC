@@ -13,12 +13,11 @@ import java.awt.Color;
  */
 public class ModelCalculadora {
     
-    private final VistaCalculadora vista;
-    
     
     
      public double calcular(float  peso, float altura){
          float imc;
+         
          
          imc = peso / (altura * altura);
          return imc;
@@ -30,11 +29,10 @@ public class ModelCalculadora {
          cadena="";
          if(imc<18.5){
              cadena = "Bajo Peso";
-             vista.getjTextFieldClasificacion().setForeground(Color.WHITE);
+             
          }else{
              if( imc< 25){
-                 cadena = "Peso Normal";
-                 vista.getjTextFieldClasificacion().setForeground(Color.GREEN);
+                 cadena = "Peso Normal";  
              }else{
                 if( imc < 30){
                     cadena = "Sobrepeso";

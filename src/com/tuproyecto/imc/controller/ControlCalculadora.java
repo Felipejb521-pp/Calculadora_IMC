@@ -40,9 +40,26 @@ public class ControlCalculadora {
             vista.setjTextFieldResultIMC(String.format("%.2f", imc));//.2 redondea 2 decimales f num decimal
             vista.setjtextFieldClasificacion(modelo.clasificar(imc));
             
+            this.vista.getjTextFieldALtura().getText().replace(',', '.');
+            this.vista.getjTextFieldPeso().getText().replace(',', '.');
             
+            if(this.modelo.clasificar(imc)== "Bajo Peso"){
+                this.vista.getjTextFieldClasificacion().setForeground(Color.GREEN);
+            }else{
+                if(this.modelo.clasificar(imc)== "Peso Normal"){
+                    this.vista.getjTextFieldClasificacion().setForeground(Color.ORANGE);
+                }else{
+                    if(this.modelo.clasificar(imc)== "Sobrepeso"){
+                        this.vista.getjTextFieldClasificacion().setForeground(Color.ORANGE);
+                    }else{
+                        if(this.modelo.clasificar(imc)== "Obesidad"){
+                            this.vista.getjTextFieldClasificacion().setForeground(Color.RED);
+                        }
+                    }
+                }
+            
+            }
         }
-        
         
         
         
@@ -51,6 +68,7 @@ public class ControlCalculadora {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try{
+                        
                         altura = Float.parseFloat(vista.getjTextFieldALtura().getText());
                     }catch(NumberFormatException ne){
                         JOptionPane.showMessageDialog(vista,"Introduzca altura "
