@@ -37,11 +37,11 @@ public class ControlCalculadora {
             Color color;
             
             imc = modelo.calcular(user.getPeso(),user.getAltura());
-            //metodos definidos en vista
+            //Metodos definidos en vista
             vista.setjTextFieldResultIMC(String.format("%.2f", imc));//.2 redondea 2 decimales f num decimal
             vista.setjtextFieldClasificacion(modelo.clasificar(imc));
              
-            
+            //Color de las letras según clasificación
             if(this.modelo.clasificar(imc).equals("Bajo Peso")){
                 this.vista.getjTextFieldClasificacion().setForeground(Color.GREEN);
             }else{
@@ -61,32 +61,37 @@ public class ControlCalculadora {
             
         }
         
-        
-        
         public void iniciarEvento(){
-            vista.getjButtonCalcular().addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    try{
-                        
-                        altura = Float.parseFloat(vista.getjTextFieldALtura().getText().replace(',', '.'));
-                    }catch(NumberFormatException ne){
-                        JOptionPane.showMessageDialog(vista,"Introduzca altura "
-                                + "valida(numeros decimales)","Datos incorrectos ",
-                                JOptionPane.ERROR_MESSAGE);
-                    }
-                    try{
-                        peso = Float.parseFloat(vista.getjTextFieldPeso().getText().replace(',', '.'));
-                    }catch(NumberFormatException ne){
-                         JOptionPane.showMessageDialog(vista,"Introduzca altura "
-                                + "valida(numeros decimales)","Datos incorrectos ",
-                                JOptionPane.ERROR_MESSAGE);
-                    }
-                    
-                    sacarResultado(new Usuario(peso,altura));
-                }
-            });
+    vista.getjButtonCalcular().addActionListener(new ActionListener() {
+        @Override
+        //Evento cuando pulso el boton de calcular
+        public void actionPerformed(ActionEvent e) {
+            boolean datosValidos = true;
+
+            try{
+                //Para transformar ',' en '.' y que así los acepte
+                altura = Float.parseFloat(vista.getjTextFieldALtura().getText().trim().replace(',', '.'));
+            }catch(NumberFormatException ne){
+                datosValidos = false;
+                JOptionPane.showMessageDialog(vista,"Introduzca una altura "
+                        + "válida (números decimales)","Datos incorrectos",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            try{
+                peso = Float.parseFloat(vista.getjTextFieldPeso().getText().trim().replace(',', '.'));
+            }catch(NumberFormatException ne){
+                datosValidos = false;
+                JOptionPane.showMessageDialog(vista,"Introduzca un peso "
+                        + "válido (números decimales)","Datos incorrectos",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+
+            if(datosValidos){
+                sacarResultado(new Usuario(peso,altura));
+            }
         }
+    });
+}
         
         
         

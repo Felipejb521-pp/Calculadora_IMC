@@ -25,14 +25,14 @@ public class CalculadoraIMC {
         modelo = new ModelCalculadora();
         vista = new VistaCalculadora();
         control = new ControlCalculadora(modelo,vista);
+        control.iniciarEvento();
         
-        //sin Jframe solo con panel no enseña
+        //Sin Jframe solo con panel no enseña la calculadora
         ventana = new JFrame("Calculadora IMC");
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.add(vista);
-        
-        //ventanita centrada
-        ventana.setLocationRelativeTo(null);
+        ventana.pack(); // ajusta la ventanita al tamaño del panel
+        ventana.setLocationRelativeTo(null);//ventanita centrada
         ventana.setVisible(true);
         
     }

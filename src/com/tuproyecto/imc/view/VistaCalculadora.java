@@ -21,7 +21,7 @@ public class VistaCalculadora extends javax.swing.JPanel {
     }
 
     
-    //usamos los getters en control
+    //Usamos los getters en control
     public JButton getjButtonCalcular() {
         return jButtonCalcular;
     }
