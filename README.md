@@ -26,15 +26,14 @@ IMC = peso / (altura × altura)
  
 ## Estructura del proyecto
  
-```
-src/
-└── com/tuproyecto/imc/
-    ├── model/
-    │   ├── Usuario.java
-    │   └── ModelCalculadora.java
-    ├── view/
-    │   └── VistaCalculadora.java
-    ├── controller/
-    │   └── ControlCalculadora.java
-    └── main/
-        └── CalculadoraIMC.java
+```text
+com.tuproyecto.imc
+├── controller
+│   └── ControlCalculadora.java   # Gestiona la lógica entre la vista y el modelo
+├── main
+│   └── CalculadoraIMC.java       # Punto de entrada principal (main) de la aplicación
+├── model
+│   ├── ModelCalculadora.java     # Lógica de negocio y cálculo del IMC
+│   └── Usuario.java              # Clase entidad con los datos del usuario (peso, altura, etc.)
+└── view
+    └── VistaCalculadora.java     # Interfaz de usuario
